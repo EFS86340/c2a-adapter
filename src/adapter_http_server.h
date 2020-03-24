@@ -6,14 +6,16 @@
 #ifndef CEPH2AWS_SRC_HTTP_SERVER_H_
 #define CEPH2AWS_SRC_HTTP_SERVER_H_
 
+#include "aws_sns_notification.h"
+
 #include <pistache/endpoint.h>
 #include <rapidjson/document.h>
 
 #include <iostream>
 
-class HelloHandler : public Pistache::Http::Handler {
+class BucketNotificationHandler : public Pistache::Http::Handler {
  public:
-  HTTP_PROTOTYPE(HelloHandler)
+  HTTP_PROTOTYPE(BucketNotificationHandler)
 
   void onRequest(const Pistache::Http::Request &request, Pistache::Http::ResponseWriter response) override {
     // UNUSED(request);
@@ -35,17 +37,10 @@ class HelloHandler : public Pistache::Http::Handler {
       std::cout << "[+] field: " << info.name.GetString() << std::endl;
     }
 
-
+    // call aws sns publish with hard-coded arn
+    publishToSNS(request.body(), "arn:aws:sns:us-east-1:125341253834:gsoc20-ceph");
   }
 
 };
 
-class BucketNotificationHandler : public Pistache::Http::Handler {
- public:
-  HTTP_PROTOTYPE(BucketNotificationHandler);
-
-  void onRequest(const Pistache::Http::Request &request, Pistache::Http::ResponseWriter response) override {
-
-  }
-};
 #endif //CEPH2AWS_SRC_HTTP_SERVER_H_

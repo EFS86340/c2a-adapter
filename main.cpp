@@ -1,11 +1,6 @@
-#include "src/http_server.h"
-
-#include <aws/core/Aws.h>
-#include <aws/core/utils/json/JsonSerializer.h>
+#include "src/adapter_http_server.h"
 
 #include <iostream>
-
-// using namespace Pistache;
 
 int main() {
 
@@ -15,15 +10,9 @@ int main() {
   auto opts = Pistache::Http::Endpoint::options().threads(1);
   Pistache::Http::Endpoint server(addr);
   server.init(opts);
-  server.setHandler(std::make_shared<HelloHandler>());
+  server.setHandler(std::make_shared<BucketNotificationHandler>());
+
+  std::cout << "Server Ready to Run: " << std::endl;
   server.serve();
 
-  // Aws::SDKOptions options;
-  // options.loggingOptions.logLevel = Aws::Utils::Logging::LogLevel::Info;
-  // Aws::InitAPI(options);
-  // {
-
-  // }
-  // Aws::ShutdownAPI(options);
-  // return 0;
 }
