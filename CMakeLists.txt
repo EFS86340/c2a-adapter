@@ -11,7 +11,7 @@ set(CMAKE_CXX_STANDARD 14)
 # find_library(C2A_JSON rapidjson)
 find_library(C2A_HTTP pistache)
 find_library(C2A_TEST gtest)
-find_package(AWSSDK REQUIRED COMPONENTS sns)
+find_package(AWSSDK REQUIRED COMPONENTS sns lambda)
 
 link_libraries(${C2A_HTTP} ${C2A_TEST} ${AWSSDK_LINK_LIBRARIES})
 

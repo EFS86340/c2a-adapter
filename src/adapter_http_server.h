@@ -7,6 +7,7 @@
 #define CEPH2AWS_SRC_HTTP_SERVER_H_
 
 #include "aws_sns_notification.h"
+#include "aws_lamda_function.h"
 
 #include <pistache/endpoint.h>
 #include <rapidjson/document.h>
