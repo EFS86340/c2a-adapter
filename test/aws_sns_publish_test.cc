@@ -3,7 +3,7 @@
 // Copyright (c) 2020 ninesuns. All rights reserved.
 //
 
-#include "../src/aws_sns_notification.h"
+#include "aws_sns_notification.h"
 #include "gtest/gtest.h"
 
 TEST(AWS_SNS_TEST, CREATE_TOPIC_TEST) {

@@ -16,8 +16,10 @@ find_package(AWSSDK REQUIRED COMPONENTS sns lambda)
 link_libraries(${C2A_HTTP} ${C2A_TEST} ${AWSSDK_LINK_LIBRARIES})
 
 #
+include_directories("${PROJECT_SOURCE_DIR}/include")
+include_directories("${PROJECT_SOURCE_DIR}/src")
 
-add_executable(ceph2aws main.cpp)
+add_executable(ceph2aws main.cpp src/adapter_http_server.h ${PROJECT_SOURCE_DIR}/src/adapter_http_server.cc)
 
 # tests
 add_subdirectory(test)

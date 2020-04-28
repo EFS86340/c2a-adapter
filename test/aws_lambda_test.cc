@@ -3,7 +3,7 @@
 // Copyright (c) 2020 ninesuns. All rights reserved.
 //
 
-#include "../src/aws_lamda_function.h"
+#include "aws_lamda_function.h"
 #include <gtest/gtest.h>
 
 TEST(AWS_LAMBDA_API, CreateFunction) {

@@ -5,7 +5,7 @@
 
 #include <gtest/gtest.h>
 //#include <rapidjson/document.h>
-#include "../src/ceph_bucket_notification.h"
+#include "ceph_bucket_notification.h"
 
 //using namespace rapidjson;
 
